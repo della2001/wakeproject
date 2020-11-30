@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <script defer src="./index.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script src="https://kit.fontawesome.com/ebb38f76ed.js" crossorigin="anonymous"></script>
+    <script src="airtable.browser.js"></script>
+    <title>Form</title>
+</head>
+<body class="formPage">
+    <h3>Thank you for your interest!</h3>
+    <a href = "./index.html" class= "fa fa-arrow-left" aria-hidden="true">Back to list of books</a>
+    <br><br>
+    <div class="form-container">
+        <iframe id="orderForm" class="airtable-embed" frameborder="0" onmousewheel="" width="70%" height="500px" style="text-align: center; background: transparent; border: 1px solid #ccc;"></iframe>
+    </div>
+    <script>
+        document.getElementById("orderForm").src =
+            "https://airtable.com/embed/shr5fzRJWcvcLSy6q?prefill_Book="+ prefill();
+        function prefill() {
+            var title = localStorage.getItem("bookName");
+            var bookname = title.replace(" ", "%20")
+            return bookname;
+        }
+        
+    </script>
+</body>
